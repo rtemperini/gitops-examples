@@ -3,7 +3,7 @@ kind: Workflow                  # new type of k8s spec
 metadata:
   name: hello-world-01    # name of the workflow spec
 spec:
-  serviceAccountName: argo
+  serviceAccountName: argo-default-app
   securityContext:
     runAsUser: 65532
     runAsGroup: 65532
@@ -12,6 +12,12 @@ spec:
   templates:
   - name: whalesay              # name of the template
     container:
+      securityContext:
+        serviceAccountName: argo-default-app
+        securityContext:
+          runAsUser: 65532
+          runAsGroup: 65532
+          runAsNonRoot: true
       image: docker/whalesay
       command: [cowsay]
       args: ["hello world"]
