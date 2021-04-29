@@ -3,7 +3,7 @@ kind: Workflow                  # new type of k8s spec
 metadata:
   name: hello-world-01    # name of the workflow spec
 spec:
-  serviceAccountName: argo-workflow
+  serviceAccountName: argo
   securityContext:
     runAsUser: 65532
     runAsGroup: 65532
