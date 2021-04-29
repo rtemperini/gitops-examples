@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap-prod
+spec:
+  project: default
+
+  source:
+    repoURL: "https://github.com/rtemperini/gitops-examples.git"
+    targetRevision: HEAD
+    path: apps/production/bootstrap
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argo-cd
+
+  syncPolicy:
+    automated:
+      prune: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
+
