@@ -1,0 +1,5 @@
+
+namePrefix: stage-
+namespace: stage
+resources:
+- base/app01.yaml
