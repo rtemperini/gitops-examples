@@ -16,7 +16,6 @@ spec:
     path: apps/stage/dev-apps/
   syncPolicy:
     automated:
-      selfHeal: true
       prune: true
     retry:
       limit: 5
