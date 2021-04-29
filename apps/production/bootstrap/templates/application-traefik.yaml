@@ -13,6 +13,9 @@ spec:
   source:
     chart: traefik
     helm:
+      parameters:
+      - name: ports.nodeports.http
+        value: true
       valueFiles:
       - values.yaml
     repoURL: https://helm.traefik.io/traefik
