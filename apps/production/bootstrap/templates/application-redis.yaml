@@ -11,9 +11,9 @@ spec:
     server: {{ .Values.cluster }}
   project: {{ .Values.project }}
   source:
-    chart: bitnami/redis
+    chart: redis
     helm:
       valueFiles:
       - values.yaml
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 6.0
+    targetRevision: 14.1.0
