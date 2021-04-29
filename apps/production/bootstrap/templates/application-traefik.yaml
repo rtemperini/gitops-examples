@@ -14,8 +14,6 @@ spec:
     chart: traefik
     helm:
       parameters:
-      - name: ports.nodeports.http
-        value: true
       - name: service.type
         value: NodePort
       valueFiles:
