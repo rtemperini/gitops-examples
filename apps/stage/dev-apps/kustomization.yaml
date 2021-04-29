@@ -3,5 +3,4 @@ namePrefix: stage-
 namespace: stage
 resources:
 - base/app01.yaml
-- base/app02.yaml
 - base/configmap.yaml
