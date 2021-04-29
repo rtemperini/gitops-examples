@@ -2,17 +2,18 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bootstrap-stage
+  namespace: argo-cd
 spec:
   project: default
 
   source:
-    repoURL: "https://github.com/rtemperini/gitops-examples.git"
-    targetRevision: master
-    path: apps/stage/bootstrap
+    repoURL: https://github.com/rtemperini/gitops-examples
+    targetRevision: main
+    path: apps/stage/bootstrap/
 
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: argocd
+    namespace: argo-cd
 
   syncPolicy:
     automated:

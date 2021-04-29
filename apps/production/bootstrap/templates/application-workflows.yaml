@@ -1,19 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kibana
+  name: workflows
   namespace: argo-cd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: elasticsearch
+    namespace: workflows
     server: {{ .Values.cluster }}
   project: {{ .Values.project }}
   source:
-    chart: kibana
-    helm:
-      valueFiles:
-      - values.yaml
-    repoURL: https://helm.elastic.co
-    targetRevision: 7.6.1
+    repoURL: https://github.com/rtemperini/gitops-examples
+    targetRevision: main
+    path: apps/production/workflows/

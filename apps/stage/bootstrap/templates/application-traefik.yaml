@@ -1,19 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: elasticsearch
+  name: traefik
   namespace: argo-cd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: elasticsearch
+    namespace: traefik
     server: {{ .Values.cluster }}
   project: {{ .Values.project }}
   source:
-    chart: elasticsearch
+    chart: traefik
     helm:
+      parameters:
+      - name: service.type
+        value: NodePort
       valueFiles:
       - values.yaml
-    repoURL: https://helm.elastic.co
-    targetRevision: 7.6.1
+    repoURL: https://helm.traefik.io/traefik
+    targetRevision: 9.18.3
