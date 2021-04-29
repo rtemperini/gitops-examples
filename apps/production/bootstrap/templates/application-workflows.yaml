@@ -1,16 +1,17 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: workflows
-  namespace: argo-cd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  destination:
-    namespace: workflows
-    server: {{ .Values.cluster }}
-  project: {{ .Values.project }}
-  source:
-    repoURL: https://github.com/rtemperini/gitops-examples
-    targetRevision: main
-    path: apps/production/workflows/
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: workflows
+#   namespace: argo-cd
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     namespace: workflows
+#     server: {{ .Values.cluster }}
+#   project: {{ .Values.project }}
+#   source:
+#     repoURL: https://github.com/rtemperini/gitops-examples
+#     targetRevision: main
+#     path: apps/production/workflows/
+# #
