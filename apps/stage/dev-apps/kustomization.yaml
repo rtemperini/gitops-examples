@@ -2,4 +2,5 @@
 namePrefix: stage-
 namespace: stage
 resources:
-- base/*
+- base/app01.yaml
+- base/app02.yaml
