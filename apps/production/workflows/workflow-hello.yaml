@@ -3,6 +3,11 @@ kind: Workflow                  # new type of k8s spec
 metadata:
   name: hello-world-01    # name of the workflow spec
 spec:
+  serviceAccountName: argo-workflow
+  securityContext:
+    runAsUser: 65532
+    runAsGroup: 65532
+    runAsNonRoot: true
   entrypoint: whalesay          # invoke the whalesay template
   templates:
   - name: whalesay              # name of the template
