@@ -23,5 +23,9 @@ spec:
           requests:
             cpu: 100m
             memory: 100Mi
+        securityContext:
+          runAsUser: 65532
+          runAsGroup: 65532
+          runAsNonRoot: true
         ports:
         - containerPort: 6379
