@@ -16,6 +16,8 @@ spec:
       parameters:
       - name: ports.nodeports.http
         value: true
+      - name: service.type
+        value: NodePort
       valueFiles:
       - values.yaml
     repoURL: https://helm.traefik.io/traefik
